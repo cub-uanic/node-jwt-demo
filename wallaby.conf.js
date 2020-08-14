@@ -1,26 +1,21 @@
-const packageJson = require('./package');
+const packageJson = require("./package")
 
-const { env } = packageJson.betterScripts.test;
-const { files: tests } = packageJson.ava;
+const {env} = packageJson.betterScripts.test
+const {files: tests} = packageJson.ava
 
 const envString = Object.entries(env)
   .map(([key, value]) => `${key}=${value}`)
-  .join(';');
+  .join(";")
 
 module.exports = () => ({
-  files: [
-    'src/**/*.js',
-    'data/**/*.*',
-    'tests/__data/**/*.*',
-    'tests/helpers/**/*.js',
-  ],
+  files: ["src/**/*.js", "data/**/*.*", "tests/__data/**/*.*", "tests/helpers/**/*.js"],
   tests,
   env: {
-    type: 'node',
+    type: "node",
     params: {
       env: envString,
     },
   },
   debug: true,
-  testFramework: 'ava',
-});
+  testFramework: "ava",
+})
