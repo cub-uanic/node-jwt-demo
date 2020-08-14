@@ -4,7 +4,7 @@ const { compareSync } = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const jwtMiddleware = require('koa-jwt');
 
-const uuid = require('uuid/v4');
+const { v4: uuid } = require('uuid');
 
 const userService = require('../../services/user');
 const refreshTokenService = require('../../services/refreshToken');
